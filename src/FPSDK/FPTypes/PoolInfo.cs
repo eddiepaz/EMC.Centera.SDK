@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -39,35 +39,28 @@ namespace EMC.Centera.SDK.FPTypes
     {
         private FPPoolInfo info;
 
-        public PoolInfo(FPPoolInfo _info)
-        {
-            info = _info;
-        }
+        public PoolInfo(FPPoolInfo _info) => this.info = _info;
 
-        public int poolInfoVersion => (int) info.poolInfoVersion;
-        public long capacity => (long) info.capacity;
+        public int poolInfoVersion => (int) this.info.poolInfoVersion;
+        public long capacity => (long) this.info.capacity;
 
-        public long freeSpace => (long) info.freeSpace;
+        public long freeSpace => (long) this.info.freeSpace;
 
-        public string clusterName => info.clusterName;
+        public string clusterName => this.info.clusterName;
 
-        public string clusterID => info.clusterID;
-        public string version => info.version;
+        public string clusterID => this.info.clusterID;
+        public string version => this.info.version;
 
-        public string replicaAddress => info.replicaAddress;
+        public string replicaAddress => this.info.replicaAddress;
 
-        public override string ToString()
-        {
-            return "\nPool Information" +
-                   "\n================" +
-                   "\nCluster ID:                            " + clusterID +
-                   "\nCluster Name:                          " + clusterName +
-                   "\nCentraStar software version:           " + version +
-                   "\nCluster Capacity (Bytes):              " + capacity +
-                   "\nCluster Free Space (Bytes):            " + freeSpace +
-                   "\nCluster Replica Address:               " + replicaAddress + "\n";
-
-        }
-
+        public override string ToString() =>
+          "\nPool Information" +
+          "\n================" +
+          "\nCluster ID:                            " + this.clusterID +
+          "\nCluster Name:                          " + this.clusterName +
+          "\nCentraStar software version:           " + this.version +
+          "\nCluster Capacity (Bytes):              " + this.capacity +
+          "\nCluster Free Space (Bytes):            " + this.freeSpace +
+          "\nCluster Replica Address:               " + this.replicaAddress + "\n";
     }
 }

@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,39 +38,39 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class QueryResult 
+    public class QueryResult
     {
 
-        public static void Close(FPQueryResultRef inQueryResultRef) 
+        public static void Close(FPQueryResultRef inQueryResultRef)
         {
             SDK.FPQueryResult_Close(inQueryResultRef);
             SDK.CheckAndThrowError();
         }
-        public static void GetClipID(FPQueryResultRef inQueryResultRef,  StringBuilder outClipID) 
+        public static void GetClipID(FPQueryResultRef inQueryResultRef,  StringBuilder outClipID)
         {
             SDK.FPQueryResult_GetClipID(inQueryResultRef, outClipID);
             SDK.CheckAndThrowError();
         }
-        public static FPLong GetTimestamp(FPQueryResultRef inQueryResultRef) 
+        public static FPLong GetTimestamp(FPQueryResultRef inQueryResultRef)
         {
-            FPLong retval = SDK.FPQueryResult_GetTimestamp(inQueryResultRef);
+            var retval = SDK.FPQueryResult_GetTimestamp(inQueryResultRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static void GetField(FPQueryResultRef inQueryResultRef, string inAttrName, ref byte[] outAttrValue, ref FPInt ioAttrValueLen) 
+        public static void GetField(FPQueryResultRef inQueryResultRef, string inAttrName, ref byte[] outAttrValue, ref FPInt ioAttrValueLen)
         {
             SDK.FPQueryResult_GetField8(inQueryResultRef, inAttrName, outAttrValue, ref ioAttrValueLen);
             SDK.CheckAndThrowError();
         }
-        public static FPInt GetResultCode(FPQueryResultRef inQueryResultRef) 
+        public static FPInt GetResultCode(FPQueryResultRef inQueryResultRef)
         {
-            FPInt retval = SDK.FPQueryResult_GetResultCode(inQueryResultRef);
+            var retval = SDK.FPQueryResult_GetResultCode(inQueryResultRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPInt GetType(FPQueryResultRef inQueryResultRef) 
+        public static FPInt GetType(FPQueryResultRef inQueryResultRef)
         {
-            FPInt retval = SDK.FPQueryResult_GetType(inQueryResultRef);
+            var retval = SDK.FPQueryResult_GetType(inQueryResultRef);
             SDK.CheckAndThrowError();
             return retval;
         }

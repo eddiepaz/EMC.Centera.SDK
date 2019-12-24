@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,46 +38,46 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class Stream 
+    public class Stream
     {
 
-        public static FPStreamRef CreateFileForInput( string pFilePath,  string pPerm, long pBuffSize) 
+        public static FPStreamRef CreateFileForInput( string pFilePath,  string pPerm, long pBuffSize)
         {
-            FPStreamRef retval = SDK.FPStream_CreateFileForInput8(pFilePath, pPerm, pBuffSize);
+            var retval = SDK.FPStream_CreateFileForInput8(pFilePath, pPerm, pBuffSize);
             SDK.CheckAndThrowError();
             return retval;
         }
         public static FPStreamRef CreatePartialFileForInput(string pFilePath, string pPerm, long pBuffSize, long pOffset, long pSize)
         {
-            FPStreamRef retval = SDK.FPStream_CreatePartialFileForInput8(pFilePath, pPerm, pBuffSize, pOffset, pSize);
+            var retval = SDK.FPStream_CreatePartialFileForInput8(pFilePath, pPerm, pBuffSize, pOffset, pSize);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPStreamRef CreateFileForOutput(string pFilePath, string pPerm) 
+        public static FPStreamRef CreateFileForOutput(string pFilePath, string pPerm)
         {
-            FPStreamRef retval = SDK.FPStream_CreateFileForOutput8(pFilePath, pPerm);
+            var retval = SDK.FPStream_CreateFileForOutput8(pFilePath, pPerm);
             SDK.CheckAndThrowError();
             return retval;
         }
         public static FPStreamRef CreatePartialFileForOutput(string pFilePath, string pPerm, long pBuffSize, long pOffset, long pSize, long pMaxFileSize)
         {
-            FPStreamRef retval = SDK.FPStream_CreatePartialFileForOutput8(pFilePath, pPerm, pBuffSize, pOffset, pSize, pMaxFileSize);
+            var retval = SDK.FPStream_CreatePartialFileForOutput8(pFilePath, pPerm, pBuffSize, pOffset, pSize, pMaxFileSize);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPStreamRef CreateBufferForInput(IntPtr pBuffer, long pBuffLen) 
+        public static FPStreamRef CreateBufferForInput(IntPtr pBuffer, long pBuffLen)
         {
-            FPStreamRef retval = SDK.FPStream_CreateBufferForInput(pBuffer, pBuffLen);
+            var retval = SDK.FPStream_CreateBufferForInput(pBuffer, pBuffLen);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPStreamRef CreateBufferForOutput( IntPtr pBuffer, long pBuffLen) 
+        public static FPStreamRef CreateBufferForOutput( IntPtr pBuffer, long pBuffLen)
         {
-            FPStreamRef retval = SDK.FPStream_CreateBufferForOutput(pBuffer, pBuffLen);
+            var retval = SDK.FPStream_CreateBufferForOutput(pBuffer, pBuffLen);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static void Close(FPStreamRef pStream) 
+        public static void Close(FPStreamRef pStream)
         {
             SDK.FPStream_Close(pStream);
             SDK.CheckAndThrowError();
@@ -85,21 +85,21 @@ namespace EMC.Centera.SDK.Native
 
         public static FPStreamRef FPStream_CreateToStdio()
         {
-            FPStreamRef retval = SDK.FPStream_CreateToStdio();
+            var retval = SDK.FPStream_CreateToStdio();
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPStreamRef FPStream_CreateToNull()
         {
-            FPStreamRef retval = SDK.FPStream_CreateToNull();
+            var retval = SDK.FPStream_CreateToNull();
             SDK.CheckAndThrowError();
             return retval;
         }
-		
+
         public static FPStreamRef FPStream_CreateTemporaryFile (long pMemBuffSize)
         {
-            FPStreamRef retval = SDK.FPStream_CreateTemporaryFile(pMemBuffSize);
+            var retval = SDK.FPStream_CreateTemporaryFile(pMemBuffSize);
             SDK.CheckAndThrowError();
             return retval;
         }

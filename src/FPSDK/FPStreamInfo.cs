@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,21 +37,21 @@ using System.Runtime.InteropServices;
 
 namespace EMC.Centera.SDK
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct FPStreamInfo
-    {
+  [StructLayout( LayoutKind.Sequential )]
+  public unsafe struct FPStreamInfo
+  {
 
-        public short	mVersion ;         // current version of FPStreamInfo
-        public void* 	mUserData ;        // application-specific data, untouched by Generic Streams
+    public short mVersion;         // current version of FPStreamInfo
+    public void* mUserData;        // application-specific data, untouched by Generic Streams
 
-        public long		mStreamPos ;       // current position
-        public long		mMarkerPos ;       // position of marker
-        public long		mStreamLen ;       // length of stream, if known, else -1
+    public long mStreamPos;       // current position
+    public long mMarkerPos;       // position of marker
+    public long mStreamLen;       // length of stream, if known, else -1
 
-        public byte		mAtEOF ;           // have we reached the end of the stream?
-        public byte		mReadFlag ;        // indicator for the direction of the transfer
+    public byte mAtEOF;           // have we reached the end of the stream?
+    public byte mReadFlag;        // indicator for the direction of the transfer
 
-        public void*	 mBuffer ;          // databuffer supplied by application
-        public long		mTransferLen ;     // number of bytes actually transferred
-    }
+    public void* mBuffer;          // databuffer supplied by application
+    public long mTransferLen;     // number of bytes actually transferred
+  }
 }

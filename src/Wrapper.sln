@@ -1,15 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPSDK", "FPSDK\FPSDK.csproj", "{FC24098B-3DE0-4FD9-81B8-E8AC124ECA6B}"
 EndProject
-Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "FPSDK.NuGet", "FPSDK.NuGet\FPSDK.NuGet.nuproj", "{2DE66D7E-75A4-4130-9616-378675D066EE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C5283DEA-F9CC-45EB-A897-8470CF9D9436}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\nuget.config = .nuget\nuget.config
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2035A8A-3696-462F-93D7-9066322111DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +16,11 @@ Global
 		{FC24098B-3DE0-4FD9-81B8-E8AC124ECA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC24098B-3DE0-4FD9-81B8-E8AC124ECA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC24098B-3DE0-4FD9-81B8-E8AC124ECA6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DE66D7E-75A4-4130-9616-378675D066EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DE66D7E-75A4-4130-9616-378675D066EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DE66D7E-75A4-4130-9616-378675D066EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DE66D7E-75A4-4130-9616-378675D066EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE400D74-E7C2-4F34-BBF4-5A792524EA60}
 	EndGlobalSection
 EndGlobal

@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,21 +37,21 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class RetentionClass 
+    public class RetentionClass
     {
 
-        public static void GetName(FPRetentionClassRef inClassRef, ref byte[] outName, ref FPInt ioNameLen) 
+        public static void GetName(FPRetentionClassRef inClassRef, ref byte[] outName, ref FPInt ioNameLen)
         {
             SDK.FPRetentionClass_GetName8(inClassRef, outName, ref ioNameLen);
             SDK.CheckAndThrowError();
         }
-        public static FPLong GetPeriod(FPRetentionClassRef inClassRef) 
+        public static FPLong GetPeriod(FPRetentionClassRef inClassRef)
         {
-            FPLong retval = SDK.FPRetentionClass_GetPeriod(inClassRef);
+            var retval = SDK.FPRetentionClass_GetPeriod(inClassRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static void Close(FPRetentionClassRef inClassRef) 
+        public static void Close(FPRetentionClassRef inClassRef)
         {
             SDK.FPRetentionClass_Close(inClassRef);
             SDK.CheckAndThrowError();

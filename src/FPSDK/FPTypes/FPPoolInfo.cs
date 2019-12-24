@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -46,7 +46,7 @@ namespace EMC.Centera.SDK.FPTypes
 
 		[ MarshalAs( UnmanagedType.ByValTStr, SizeConst=128 )]
 		public string clusterID;         /* The cluster identifier of the pool.                */
-			
+
 		[ MarshalAs( UnmanagedType.ByValTStr, SizeConst=128 )]
 		public string clusterName;       /* The name of the cluster.                           */
 
@@ -54,7 +54,7 @@ namespace EMC.Centera.SDK.FPTypes
 		public string version;           /* The version of the pool server software.           */
 
 		[ MarshalAs( UnmanagedType.ByValTStr, SizeConst=256 )]
-		public string replicaAddress;    /* The pool address (see FPPool_Open()) where the C-Clips are replicated; empty if there is no replication. */ 
+		public string replicaAddress;    /* The pool address (see FPPool_Open()) where the C-Clips are replicated; empty if there is no replication. */
 	}
 
 

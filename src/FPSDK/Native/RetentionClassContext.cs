@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,47 +37,47 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class RetentionClassContext 
+    public class RetentionClassContext
     {
 
-        public static void Close(FPRetentionClassContextRef inContextRef) 
+        public static void Close(FPRetentionClassContextRef inContextRef)
         {
             SDK.FPRetentionClassContext_Close(inContextRef);
             SDK.CheckAndThrowError();
         }
-        public static FPInt GetNumClasses(FPRetentionClassContextRef inContextRef) 
+        public static FPInt GetNumClasses(FPRetentionClassContextRef inContextRef)
         {
-            FPInt retval = SDK.FPRetentionClassContext_GetNumClasses(inContextRef);
+            var retval = SDK.FPRetentionClassContext_GetNumClasses(inContextRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPRetentionClassRef GetFirstClass(FPRetentionClassContextRef inContextRef) 
+        public static FPRetentionClassRef GetFirstClass(FPRetentionClassContextRef inContextRef)
         {
-            FPRetentionClassRef retval = SDK.FPRetentionClassContext_GetFirstClass(inContextRef);
+            var retval = SDK.FPRetentionClassContext_GetFirstClass(inContextRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPRetentionClassRef GetLastClass(FPRetentionClassContextRef inContextRef) 
+        public static FPRetentionClassRef GetLastClass(FPRetentionClassContextRef inContextRef)
         {
-            FPRetentionClassRef retval = SDK.FPRetentionClassContext_GetLastClass(inContextRef);
+            var retval = SDK.FPRetentionClassContext_GetLastClass(inContextRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPRetentionClassRef GetNextClass(FPRetentionClassContextRef inContextRef) 
+        public static FPRetentionClassRef GetNextClass(FPRetentionClassContextRef inContextRef)
         {
-            FPRetentionClassRef retval = SDK.FPRetentionClassContext_GetNextClass(inContextRef);
+            var retval = SDK.FPRetentionClassContext_GetNextClass(inContextRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPRetentionClassRef GetPreviousClass(FPRetentionClassContextRef inContextRef) 
+        public static FPRetentionClassRef GetPreviousClass(FPRetentionClassContextRef inContextRef)
         {
-            FPRetentionClassRef retval = SDK.FPRetentionClassContext_GetPreviousClass(inContextRef);
+            var retval = SDK.FPRetentionClassContext_GetPreviousClass(inContextRef);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPRetentionClassRef GetNamedClass(FPRetentionClassContextRef inContextRef,  string inName) 
+        public static FPRetentionClassRef GetNamedClass(FPRetentionClassContextRef inContextRef,  string inName)
         {
-            FPRetentionClassRef retval = SDK.FPRetentionClassContext_GetNamedClass8(inContextRef, inName);
+            var retval = SDK.FPRetentionClassContext_GetNamedClass8(inContextRef, inName);
             SDK.CheckAndThrowError();
             return retval;
         }

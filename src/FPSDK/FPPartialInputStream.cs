@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,31 +37,34 @@ using System.IO;
 
 namespace EMC.Centera.SDK
 {
-    /// <summary> The FPPartialInputStream reads data from a section of an
-    /// underlying stream using offset and size to determine the "section" boundaries.
-    /// </summary>
-    public class FPPartialInputStream : FPPartialStream
+  /// <summary> The FPPartialInputStream reads data from a section of an
+  /// underlying stream using offset and size to determine the "section" boundaries.
+  /// </summary>
+  public class FPPartialInputStream : FPPartialStream
+  {
+    public FPPartialInputStream( Stream s, long o, long c ) : base( s, o, c ) { }
+
+    public override bool CanRead => true;
+
+    /// <inheritdoc />
+    public override int Read( byte[] buffer, int offset, int count )
     {
-        public FPPartialInputStream(Stream s, long o, long c) : base(s, o, c) { }
+      int bytesRead;
 
-        public override bool CanRead => true;
+      lock( this.theStream )
+      {
+        this.theStream.Seek( this.Position, SeekOrigin.Begin );
 
-        public override int Read(byte[] buffer, int offset, int count)
+        if( (this.Position + count) > this.end )
         {
-            int bytesRead;
-
-            lock (theStream)
-            {
-                theStream.Seek(Position, SeekOrigin.Begin);
-
-                if ((Position + count) > end)
-                    count = (int)(end - Position);
-
-                bytesRead = theStream.Read(buffer, offset, count);
-                Position += bytesRead;
-            }
-
-            return bytesRead;
+          count = (int) (this.end - this.Position);
         }
+
+        bytesRead = this.theStream.Read( buffer, offset, count );
+        this.Position += bytesRead;
+      }
+
+      return bytesRead;
     }
+  }
 }

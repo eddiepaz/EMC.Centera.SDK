@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -34,39 +34,41 @@ along with .NET wrapper; see the file COPYING. If not, write to:
 ******************************************************************************/
 
 namespace EMC.Centera.SDK
-{	
-	/// <summary> 
-	///A Name-Value pair containing string representations of the Name and Value of an attribute..
-	///@author Graham Stuart
-	///@version
-	 /// </summary>
-	public class FPAttribute : IFPAttribute
-	{
-	    /// <summary>
-		///The Attribute Name
-		 /// </summary>
-		public string Name { get; }
+{
+  /// <summary>
+  ///A Name-Value pair containing string representations of the Name and Value of an attribute..
+  ///@author Graham Stuart
+  ///@version
+  /// </summary>
+  public class FPAttribute : IFPAttribute
+  {
+    /// <summary>
+    ///The Attribute Name
+    /// </summary>
+    public string Name { get; }
 
-	    /// <summary>
-		///The Attribute Value
-		 /// </summary>
-		public string Value { get; }
+    /// <summary>
+    ///The Attribute Value
+    /// </summary>
+    public string Value { get; }
 
-	    /// <summary>
-		///Create an FPAttribute object using the name-value string parameters.
-		///
-		///@param n	FPAttribute Name.
-		///@param v	FPAttribute Value.
-		 /// </summary>
-		public FPAttribute(string n, string v)
-		{
-			Name = n;
-			Value = v;
-		}
+    /// <summary>
+    ///Create an FPAttribute object using the name-value string parameters.
+    ///
+    ///@param n FPAttribute Name.
+    ///@param v FPAttribute Value.
+    /// </summary>
+    public FPAttribute( string n, string v )
+    {
+      this.Name = n;
+      this.Value = v;
+    }
 
-		public override string ToString()
-		{
-			return "Name (" + Name + ") Value (" + Value + ")";
-		}
-	}
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString() =>
+      "Name (" + this.Name + ") Value (" + this.Value + ")";
+  }
 }

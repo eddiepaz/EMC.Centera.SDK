@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -35,106 +35,90 @@ along with .NET wrapper; see the file COPYING. If not, write to:
 
 using System;
 using System.Collections;
+using System.Linq;
+
 using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK
 {
 
-    /// <summary> 
-	///A collection of RetentionClass objects stored in an ArrayList.
-	///@author Graham Stuart
-	///@version
-	 /// </summary>
-    public class FPRetentionClassCollection:ArrayList
+  /// <summary>
+  ///A collection of RetentionClass objects stored in an ArrayList.
+  ///@author Graham Stuart
+  ///@version
+  /// </summary>
+  public sealed class FPRetentionClassCollection : ArrayList
+  {
+    private FPRetentionClassContextRef myContext;
+
+    internal FPRetentionClassContextRef RCContext
     {
-        private FPRetentionClassContextRef myContext;
-
-        internal FPRetentionClassContextRef RCContext
-        {
-            get
-            {
-                return myContext;
-            }
-            set
-            {
-                myContext = value;
-            }
-        }
-
-        internal FPRetentionClassCollection(FPPool p) 
-        { 
-            RCContext = Native.Pool.GetRetentionClassContext(p);
-
-            FPRetentionClassRef c = Native.RetentionClassContext.GetFirstClass(RCContext);
-
-            while(c != 0)
-            {
-                Add(new FPRetentionClass(c));
-                c = Native.RetentionClassContext.GetNextClass(RCContext);
-            }
-        }	
-        /// <summary>
-		///Get the Period associated with a named RetentionClass in the RetentionClassList.
-		///
-		///@param	inName	The name of the RetentionClass in the list to get the period for.
-		///@return	The period (as a TimeSpan) associated with the named RetentionClass.
-		 /// </summary>
-        public TimeSpan GetPeriod(string inName) 
-        {
-            if (ValidateClass(inName))
-            {
-                FPRetentionClassRef theRef = Native.RetentionClassContext.GetNamedClass(RCContext, inName);
-                return new TimeSpan(0, 0, (int) Native.RetentionClass.GetPeriod(theRef));
-            }
-            else
-            {
-                return new TimeSpan(0);
-            }
-        }
-
-        /// <summary>
-		///Get a named RetentionClass from the RetentionClassList. The class must exist or an exception is thrown.
-		///See API Guide: FPRetentionClassContext_GetNamedClass
-		///
-		///@param	inName	The name of the RetentionClass to get from the list.
-		///@return	The named RetentionClass
-		 /// </summary>
-        public FPRetentionClass GetClass(string inName) 
-        {
-            FPRetentionClass retVal = null;
-            
-            foreach (FPRetentionClass rc in this)
-            {
-                if (rc.Name.CompareTo(inName) == 0)
-                {
-                    retVal = rc;
-                    break;
-                }
-            }
-
-            if (retVal == null)
-                throw new FPLibraryException("Invalid Retention Class name", -10019);
-            else
-                return retVal;
-        }
-
-        /// <summary>
-		///Check for the existence of a named RetentionClass in the RetentionClassList.
-		///See API Guide: FPRetentionClassContext_GetNamedClass
-		///
-		///@param	inName	The name of the RetentionClass to get from the list.
-		///@return	The named RetentionClass
-		 /// </summary>
-        public bool ValidateClass(string inName)
-        {
-            foreach (FPRetentionClass rc in this)
-            {
-                if (rc.Name.CompareTo(inName) == 0)
-                    return true;
-            }
-
-            return false;
-        }
-
+      get => this.myContext;
+      set => this.myContext = value;
     }
+
+    internal FPRetentionClassCollection( FPPool p )
+    {
+      this.RCContext = Native.Pool.GetRetentionClassContext( p );
+
+      var c = Native.RetentionClassContext.GetFirstClass( this.RCContext );
+
+      while( c != 0 )
+      {
+        this.Add( new FPRetentionClass( c ) );
+        c = Native.RetentionClassContext.GetNextClass( this.RCContext );
+      }
+    }
+    /// <summary>
+    ///Get the Period associated with a named RetentionClass in the RetentionClassList.
+    ///
+    ///@param inName  The name of the RetentionClass in the list to get the period for.
+    ///@return  The period (as a TimeSpan) associated with the named RetentionClass.
+    /// </summary>
+    public TimeSpan GetPeriod( string inName )
+    {
+      if( this.ValidateClass( inName ) )
+      {
+        var theRef = Native.RetentionClassContext.GetNamedClass( this.RCContext, inName );
+        return new TimeSpan( 0, 0, (int) Native.RetentionClass.GetPeriod( theRef ) );
+      }
+      else
+      {
+        return new TimeSpan( 0 );
+      }
+    }
+
+    /// <summary>
+    ///Get a named RetentionClass from the RetentionClassList. The class must exist or an exception is thrown.
+    ///See API Guide: FPRetentionClassContext_GetNamedClass
+    ///
+    ///@param inName  The name of the RetentionClass to get from the list.
+    ///@return  The named RetentionClass
+    /// </summary>
+    public FPRetentionClass GetClass( string inName )
+    {
+      FPRetentionClass retVal = null;
+
+      foreach( FPRetentionClass rc in this )
+      {
+        if( rc.Name.CompareTo( inName ) == 0 )
+        {
+          retVal = rc;
+          break;
+        }
+      }
+
+      return retVal ?? throw new FPLibraryException( "Invalid Retention Class name", -10019 );
+    }
+
+    /// <summary>
+    ///Check for the existence of a named RetentionClass in the RetentionClassList.
+    ///See API Guide: FPRetentionClassContext_GetNamedClass
+    ///
+    ///@param inName  The name of the RetentionClass to get from the list.
+    ///@return  The named RetentionClass
+    /// </summary>
+    public bool ValidateClass( string inName ) =>
+      this.Cast<FPRetentionClass>().Any( rc => rc.Name.CompareTo( inName ) == 0 );
+  }
 }

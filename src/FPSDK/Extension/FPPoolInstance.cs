@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -45,24 +45,24 @@ namespace EMC.Centera.SDK.Extension
         public static IFPPool Get(string connectionString)
         {
             IFPPool myPool;
-            if (connectionString2PoolConnection.Contains(connectionString))
+            if (FPPoolInstance.connectionString2PoolConnection.Contains(connectionString))
             {
-                myPool = (IFPPool)connectionString2PoolConnection[connectionString];
+                myPool = (IFPPool)FPPoolInstance.connectionString2PoolConnection[connectionString];
             }
             else
             {
                 myPool = new FPPoolInstance(connectionString);
 
-                connectionString2PoolConnection.Add(connectionString, myPool);
+                FPPoolInstance.connectionString2PoolConnection.Add(connectionString, myPool);
             }
             return myPool;
         }
 
         public static IFPPool Get(byte[] theBytes)
         {
-            string connectionString = Encoding.Unicode.GetString(theBytes);
+            var connectionString = Encoding.Unicode.GetString(theBytes);
 
-            return Get(connectionString);
+            return FPPoolInstance.Get(connectionString);
         }
 
         private FPPoolInstance(string poolConnectionString) : base(poolConnectionString)
@@ -71,7 +71,7 @@ namespace EMC.Centera.SDK.Extension
 
         ~FPPoolInstance()
         {
-            Dispose(false);
+          this.Dispose(false);
         }
     }
 }

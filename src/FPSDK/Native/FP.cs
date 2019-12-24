@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748
@@ -43,7 +43,7 @@ namespace EMC.Centera.SDK.Native
 	/// </summary>
 	/* The structure that will store the pool information that FPPool_GetPoolInfo() retrieves. */
 
-	public class FP 
+	public class FP
 	{
 		public static readonly string  OPTION_BUFFERSIZE                                 = "buffersize";
 		public static readonly string  OPTION_TIMEOUT                                    = "timeout";
@@ -136,82 +136,82 @@ namespace EMC.Centera.SDK.Native
 		public static readonly string  MD5                                               = "MD5";
 		public static readonly string  MG                                                = "MG";
 		public static readonly FPInt   ERROR_BASE                                        = (FPInt )(-10000);
-		public static readonly FPInt   INVALID_NAME                                      = (FPInt )((ERROR_BASE-1));
-		public static readonly FPInt   UNKNOWN_OPTION                                    = (FPInt )((ERROR_BASE-2));
-		public static readonly FPInt   NOT_SEND_REQUEST_ERR                              = (FPInt )((ERROR_BASE-3));
-		public static readonly FPInt   NOT_RECEIVE_REPLY_ERR                             = (FPInt )((ERROR_BASE-4));
-		public static readonly FPInt   SERVER_ERR                                        = (FPInt )((ERROR_BASE-5));
-		public static readonly FPInt   PARAM_ERR                                         = (FPInt )((ERROR_BASE-6));
-		public static readonly FPInt   PATH_NOT_FOUND_ERR                                = (FPInt )((ERROR_BASE-7));
-		public static readonly FPInt   CONTROLFIELD_ERR                                  = (FPInt )((ERROR_BASE-8));
-		public static readonly FPInt   SEGDATA_ERR                                       = (FPInt )((ERROR_BASE-9));
-		public static readonly FPInt   DUPLICATE_FILE_ERR                                = (FPInt )((ERROR_BASE-10));
-		public static readonly FPInt   OFFSET_FIELD_ERR                                  = (FPInt )((ERROR_BASE-11));
-		public static readonly FPInt   OPERATION_NOT_SUPPORTED                           = (FPInt )((ERROR_BASE-12));
-		public static readonly FPInt   ACK_NOT_RCV_ERR                                   = (FPInt )((ERROR_BASE-13));
-		public static readonly FPInt   FILE_NOT_STORED_ERR                               = (FPInt )((ERROR_BASE-14));
-		public static readonly FPInt   NUMLOC_FIELD_ERR                                  = (FPInt )((ERROR_BASE-15));
-		public static readonly FPInt   SECTION_NOT_FOUND_ERR                             = (FPInt )((ERROR_BASE-16));
-		public static readonly FPInt   TAG_NOT_FOUND_ERR                                 = (FPInt )((ERROR_BASE-17));
-		public static readonly FPInt   ATTR_NOT_FOUND_ERR                                = (FPInt )((ERROR_BASE-18));
-		public static readonly FPInt   WRONG_REFERENCE_ERR                               = (FPInt )((ERROR_BASE-19));
-		public static readonly FPInt   NO_POOL_ERR                                       = (FPInt )((ERROR_BASE-20));
-		public static readonly FPInt   CLIP_NOT_FOUND_ERR                                = (FPInt )((ERROR_BASE-21));
-		public static readonly FPInt   TAGTREE_ERR                                       = (FPInt )((ERROR_BASE-22));
-		public static readonly FPInt   ISNOT_DIRECTORY_ERR                               = (FPInt )((ERROR_BASE-23));
-		public static readonly FPInt   UNEXPECTEDTAG_ERR                                 = (FPInt )((ERROR_BASE-24));
-		public static readonly FPInt   TAG_READONLY_ERR                                  = (FPInt )((ERROR_BASE-25));
-		public static readonly FPInt   OUT_OF_BOUNDS_ERR                                 = (FPInt )((ERROR_BASE-26));
-		public static readonly FPInt   FILESYS_ERR                                       = (FPInt )((ERROR_BASE-27));
-		public static readonly FPInt   STACK_DEPTH_ERR                                   = (FPInt )((ERROR_BASE-29));
-		public static readonly FPInt   TAG_HAS_NO_DATA_ERR                               = (FPInt )((ERROR_BASE-30));
-		public static readonly FPInt   VERSION_ERR                                       = (FPInt )((ERROR_BASE-31));
-		public static readonly FPInt   MULTI_BLOB_ERR                                    = (FPInt )((ERROR_BASE-32));
-		public static readonly FPInt   PROTOCOL_ERR                                      = (FPInt )((ERROR_BASE-33));
-		public static readonly FPInt   NO_SOCKET_AVAIL_ERR                               = (FPInt )((ERROR_BASE-34));
-		public static readonly FPInt   BLOBIDFIELD_ERR                                   = (FPInt )((ERROR_BASE-35));
-		public static readonly FPInt   BLOBIDMISMATCH_ERR                                = (FPInt )((ERROR_BASE-36));
-		public static readonly FPInt   PROBEPACKET_ERR                                   = (FPInt )((ERROR_BASE-37));
-		public static readonly FPInt   CLIPCLOSED_ERR                                    = (FPInt )((ERROR_BASE-38));
-		public static readonly FPInt   POOLCLOSED_ERR                                    = (FPInt )((ERROR_BASE-39));
-		public static readonly FPInt   BLOBBUSY_ERR                                      = (FPInt )((ERROR_BASE-40));
-		public static readonly FPInt   SERVER_NOTREADY_ERR                               = (FPInt )((ERROR_BASE-41));
-		public static readonly FPInt   SERVER_NO_CAPACITY_ERR                            = (FPInt )((ERROR_BASE-42));
+		public static readonly FPInt   INVALID_NAME                                      = (FPInt )((FP.ERROR_BASE-1));
+		public static readonly FPInt   UNKNOWN_OPTION                                    = (FPInt )((FP.ERROR_BASE-2));
+		public static readonly FPInt   NOT_SEND_REQUEST_ERR                              = (FPInt )((FP.ERROR_BASE-3));
+		public static readonly FPInt   NOT_RECEIVE_REPLY_ERR                             = (FPInt )((FP.ERROR_BASE-4));
+		public static readonly FPInt   SERVER_ERR                                        = (FPInt )((FP.ERROR_BASE-5));
+		public static readonly FPInt   PARAM_ERR                                         = (FPInt )((FP.ERROR_BASE-6));
+		public static readonly FPInt   PATH_NOT_FOUND_ERR                                = (FPInt )((FP.ERROR_BASE-7));
+		public static readonly FPInt   CONTROLFIELD_ERR                                  = (FPInt )((FP.ERROR_BASE-8));
+		public static readonly FPInt   SEGDATA_ERR                                       = (FPInt )((FP.ERROR_BASE-9));
+		public static readonly FPInt   DUPLICATE_FILE_ERR                                = (FPInt )((FP.ERROR_BASE-10));
+		public static readonly FPInt   OFFSET_FIELD_ERR                                  = (FPInt )((FP.ERROR_BASE-11));
+		public static readonly FPInt   OPERATION_NOT_SUPPORTED                           = (FPInt )((FP.ERROR_BASE-12));
+		public static readonly FPInt   ACK_NOT_RCV_ERR                                   = (FPInt )((FP.ERROR_BASE-13));
+		public static readonly FPInt   FILE_NOT_STORED_ERR                               = (FPInt )((FP.ERROR_BASE-14));
+		public static readonly FPInt   NUMLOC_FIELD_ERR                                  = (FPInt )((FP.ERROR_BASE-15));
+		public static readonly FPInt   SECTION_NOT_FOUND_ERR                             = (FPInt )((FP.ERROR_BASE-16));
+		public static readonly FPInt   TAG_NOT_FOUND_ERR                                 = (FPInt )((FP.ERROR_BASE-17));
+		public static readonly FPInt   ATTR_NOT_FOUND_ERR                                = (FPInt )((FP.ERROR_BASE-18));
+		public static readonly FPInt   WRONG_REFERENCE_ERR                               = (FPInt )((FP.ERROR_BASE-19));
+		public static readonly FPInt   NO_POOL_ERR                                       = (FPInt )((FP.ERROR_BASE-20));
+		public static readonly FPInt   CLIP_NOT_FOUND_ERR                                = (FPInt )((FP.ERROR_BASE-21));
+		public static readonly FPInt   TAGTREE_ERR                                       = (FPInt )((FP.ERROR_BASE-22));
+		public static readonly FPInt   ISNOT_DIRECTORY_ERR                               = (FPInt )((FP.ERROR_BASE-23));
+		public static readonly FPInt   UNEXPECTEDTAG_ERR                                 = (FPInt )((FP.ERROR_BASE-24));
+		public static readonly FPInt   TAG_READONLY_ERR                                  = (FPInt )((FP.ERROR_BASE-25));
+		public static readonly FPInt   OUT_OF_BOUNDS_ERR                                 = (FPInt )((FP.ERROR_BASE-26));
+		public static readonly FPInt   FILESYS_ERR                                       = (FPInt )((FP.ERROR_BASE-27));
+		public static readonly FPInt   STACK_DEPTH_ERR                                   = (FPInt )((FP.ERROR_BASE-29));
+		public static readonly FPInt   TAG_HAS_NO_DATA_ERR                               = (FPInt )((FP.ERROR_BASE-30));
+		public static readonly FPInt   VERSION_ERR                                       = (FPInt )((FP.ERROR_BASE-31));
+		public static readonly FPInt   MULTI_BLOB_ERR                                    = (FPInt )((FP.ERROR_BASE-32));
+		public static readonly FPInt   PROTOCOL_ERR                                      = (FPInt )((FP.ERROR_BASE-33));
+		public static readonly FPInt   NO_SOCKET_AVAIL_ERR                               = (FPInt )((FP.ERROR_BASE-34));
+		public static readonly FPInt   BLOBIDFIELD_ERR                                   = (FPInt )((FP.ERROR_BASE-35));
+		public static readonly FPInt   BLOBIDMISMATCH_ERR                                = (FPInt )((FP.ERROR_BASE-36));
+		public static readonly FPInt   PROBEPACKET_ERR                                   = (FPInt )((FP.ERROR_BASE-37));
+		public static readonly FPInt   CLIPCLOSED_ERR                                    = (FPInt )((FP.ERROR_BASE-38));
+		public static readonly FPInt   POOLCLOSED_ERR                                    = (FPInt )((FP.ERROR_BASE-39));
+		public static readonly FPInt   BLOBBUSY_ERR                                      = (FPInt )((FP.ERROR_BASE-40));
+		public static readonly FPInt   SERVER_NOTREADY_ERR                               = (FPInt )((FP.ERROR_BASE-41));
+		public static readonly FPInt   SERVER_NO_CAPACITY_ERR                            = (FPInt )((FP.ERROR_BASE-42));
 		public static readonly FPInt   NETWORK_ERROR_BASE                                = (FPInt )(-10100);
-		public static readonly FPInt   SOCKET_ERR                                        = (FPInt )((NETWORK_ERROR_BASE-1));
-		public static readonly FPInt   PACKETDATA_ERR                                    = (FPInt )((NETWORK_ERROR_BASE-2));
-		public static readonly FPInt   ACCESSNODE_ERR                                    = (FPInt )((NETWORK_ERROR_BASE-3));
+		public static readonly FPInt   SOCKET_ERR                                        = (FPInt )((FP.NETWORK_ERROR_BASE-1));
+		public static readonly FPInt   PACKETDATA_ERR                                    = (FPInt )((FP.NETWORK_ERROR_BASE-2));
+		public static readonly FPInt   ACCESSNODE_ERR                                    = (FPInt )((FP.NETWORK_ERROR_BASE-3));
 		public static readonly FPInt   SERVER_ERROR_BASE                                 = (FPInt )(-10150);
-		public static readonly FPInt   OPCODE_FIELD_ERR                                  = (FPInt )((SERVER_ERROR_BASE-1));
-		public static readonly FPInt   PACKET_FIELD_MISSING_ERR                          = (FPInt )((SERVER_ERROR_BASE-2));
-		public static readonly FPInt   AUTHENTICATION_FAILED_ERR                         = (FPInt )((SERVER_ERROR_BASE-3));
-		public static readonly FPInt   UNKNOWN_AUTH_SCHEME_ERR                           = (FPInt )((SERVER_ERROR_BASE-4));
-		public static readonly FPInt   UNKNOWN_AUTH_PROTOCOL_ERR                         = (FPInt )((SERVER_ERROR_BASE-5));
-		public static readonly FPInt   TRANSACTION_FAILED_ERR                            = (FPInt )((SERVER_ERROR_BASE-6));
-		public static readonly FPInt   PROFILECLIPID_NOTFOUND_ERR                        = (FPInt )((SERVER_ERROR_BASE-7));
+		public static readonly FPInt   OPCODE_FIELD_ERR                                  = (FPInt )((FP.SERVER_ERROR_BASE-1));
+		public static readonly FPInt   PACKET_FIELD_MISSING_ERR                          = (FPInt )((FP.SERVER_ERROR_BASE-2));
+		public static readonly FPInt   AUTHENTICATION_FAILED_ERR                         = (FPInt )((FP.SERVER_ERROR_BASE-3));
+		public static readonly FPInt   UNKNOWN_AUTH_SCHEME_ERR                           = (FPInt )((FP.SERVER_ERROR_BASE-4));
+		public static readonly FPInt   UNKNOWN_AUTH_PROTOCOL_ERR                         = (FPInt )((FP.SERVER_ERROR_BASE-5));
+		public static readonly FPInt   TRANSACTION_FAILED_ERR                            = (FPInt )((FP.SERVER_ERROR_BASE-6));
+		public static readonly FPInt   PROFILECLIPID_NOTFOUND_ERR                        = (FPInt )((FP.SERVER_ERROR_BASE-7));
 		public static readonly FPInt   CLIENT_ERROR_BASE                                 = (FPInt )(-10200);
-		public static readonly FPInt   OPERATION_REQUIRES_MARK                           = (FPInt )((CLIENT_ERROR_BASE-1));
-		public static readonly FPInt   QUERYCLOSED_ERR                                   = (FPInt )((CLIENT_ERROR_BASE-2));
-		public static readonly FPInt   WRONG_STREAM_ERR                                  = (FPInt )((CLIENT_ERROR_BASE-3));
-		public static readonly FPInt   OPERATION_NOT_ALLOWED                             = (FPInt )((CLIENT_ERROR_BASE-4));
-		public static readonly FPInt   SDK_INTERNAL_ERR                                  = (FPInt )((CLIENT_ERROR_BASE-5));
-		public static readonly FPInt   OUT_OF_MEMORY_ERR                                 = (FPInt )((CLIENT_ERROR_BASE-6));
-		public static readonly FPInt   OBJECTINUSE_ERR                                   = (FPInt )((CLIENT_ERROR_BASE-7));
-		public static readonly FPInt   NOTYET_OPEN_ERR                                   = (FPInt )((CLIENT_ERROR_BASE-8));
-		public static readonly FPInt   STREAM_ERR                                        = (FPInt )((CLIENT_ERROR_BASE-9));
-		public static readonly FPInt   TAGCLOSED_ERR                                     = (FPInt )((CLIENT_ERROR_BASE-10));
-		public static readonly FPInt   THREAD_ERR                                        = (FPInt )((CLIENT_ERROR_BASE-11));
-		public static readonly FPInt   PROBE_TIME_EXPIRED_ERR                            = (FPInt )((CLIENT_ERROR_BASE-12));
-		public static readonly FPInt   PROFILECLIPID_WRITE_ERR                           = (FPInt )((CLIENT_ERROR_BASE-13));
-		public static readonly FPInt   INVALID_XML_ERR                                   = (FPInt )((CLIENT_ERROR_BASE-14));
-		public static readonly FPInt   UNABLE_TO_GET_LAST_ERROR                          = (FPInt )((CLIENT_ERROR_BASE-15));
+		public static readonly FPInt   OPERATION_REQUIRES_MARK                           = (FPInt )((FP.CLIENT_ERROR_BASE-1));
+		public static readonly FPInt   QUERYCLOSED_ERR                                   = (FPInt )((FP.CLIENT_ERROR_BASE-2));
+		public static readonly FPInt   WRONG_STREAM_ERR                                  = (FPInt )((FP.CLIENT_ERROR_BASE-3));
+		public static readonly FPInt   OPERATION_NOT_ALLOWED                             = (FPInt )((FP.CLIENT_ERROR_BASE-4));
+		public static readonly FPInt   SDK_INTERNAL_ERR                                  = (FPInt )((FP.CLIENT_ERROR_BASE-5));
+		public static readonly FPInt   OUT_OF_MEMORY_ERR                                 = (FPInt )((FP.CLIENT_ERROR_BASE-6));
+		public static readonly FPInt   OBJECTINUSE_ERR                                   = (FPInt )((FP.CLIENT_ERROR_BASE-7));
+		public static readonly FPInt   NOTYET_OPEN_ERR                                   = (FPInt )((FP.CLIENT_ERROR_BASE-8));
+		public static readonly FPInt   STREAM_ERR                                        = (FPInt )((FP.CLIENT_ERROR_BASE-9));
+		public static readonly FPInt   TAGCLOSED_ERR                                     = (FPInt )((FP.CLIENT_ERROR_BASE-10));
+		public static readonly FPInt   THREAD_ERR                                        = (FPInt )((FP.CLIENT_ERROR_BASE-11));
+		public static readonly FPInt   PROBE_TIME_EXPIRED_ERR                            = (FPInt )((FP.CLIENT_ERROR_BASE-12));
+		public static readonly FPInt   PROFILECLIPID_WRITE_ERR                           = (FPInt )((FP.CLIENT_ERROR_BASE-13));
+		public static readonly FPInt   INVALID_XML_ERR                                   = (FPInt )((FP.CLIENT_ERROR_BASE-14));
+		public static readonly FPInt   UNABLE_TO_GET_LAST_ERROR                          = (FPInt )((FP.CLIENT_ERROR_BASE-15));
 		public static readonly FPInt   UNDEFINED_ERROR_BASE                              = (FPInt )(-10250);
 		public static readonly FPInt   ZOS_ERROR_BASE                                    = (FPInt )(-20000);
-		public static readonly FPInt   SUBTASK_TCB_NOT_FOUND                             = (FPInt )((ZOS_ERROR_BASE-1));
-		public static readonly FPInt   INVALID_FUNCTION_ID                               = (FPInt )((ZOS_ERROR_BASE-2));
-		public static readonly FPInt   COMMAREA_MALLOC_ERR                               = (FPInt )((ZOS_ERROR_BASE-3));
-		public static readonly FPInt   ZOS_SUBTASK_ABEND                                 = (FPInt )((ZOS_ERROR_BASE-4));
-		public static readonly FPInt   ZOS_SUBTASK_UNKN_RC                               = (FPInt )((ZOS_ERROR_BASE-5));
+		public static readonly FPInt   SUBTASK_TCB_NOT_FOUND                             = (FPInt )((FP.ZOS_ERROR_BASE-1));
+		public static readonly FPInt   INVALID_FUNCTION_ID                               = (FPInt )((FP.ZOS_ERROR_BASE-2));
+		public static readonly FPInt   COMMAREA_MALLOC_ERR                               = (FPInt )((FP.ZOS_ERROR_BASE-3));
+		public static readonly FPInt   ZOS_SUBTASK_ABEND                                 = (FPInt )((FP.ZOS_ERROR_BASE-4));
+		public static readonly FPInt   ZOS_SUBTASK_UNKN_RC                               = (FPInt )((FP.ZOS_ERROR_BASE-5));
 		public static readonly FPInt   ZOS_IEANTCR_BASE                                  = (FPInt )(-20100);
 		public static readonly FPInt   ZOS_IEANTDL_BASE                                  = (FPInt )(-20200);
 		public static readonly FPInt   ZOS_IEANTRT_BASE                                  = (FPInt )(-20300);
@@ -241,7 +241,7 @@ namespace EMC.Centera.SDK.Native
 
 		public static FPLong FPTime_StringToLong (string inClusterTime)
 		{
-			FPLong retval = SDK.FPTime_StringToLong8(inClusterTime);
+			var retval = SDK.FPTime_StringToLong8(inClusterTime);
 			SDK.CheckAndThrowError();
 			return retval;
 		}
@@ -254,7 +254,7 @@ namespace EMC.Centera.SDK.Native
 
 		public static FPLong FPTime_StringToSeconds (string inClusterTime)
 		{
-			FPLong retval = SDK.FPTime_StringToSeconds8(inClusterTime);
+			var retval = SDK.FPTime_StringToSeconds8(inClusterTime);
 			SDK.CheckAndThrowError();
 			return retval;
 		}
@@ -264,19 +264,19 @@ namespace EMC.Centera.SDK.Native
 			SDK.FPTime_SecondsToString8(inTime, outClusterTime, ref ioClusterTimeLen, inOptions);
 			SDK.CheckAndThrowError();
 		}
-		
+
 		public static FPLong FPTime_StringToMilliseconds (string inClusterTime)
 		{
-			FPLong retval = SDK.FPTime_StringToMilliseconds8(inClusterTime);
+			var retval = SDK.FPTime_StringToMilliseconds8(inClusterTime);
 			SDK.CheckAndThrowError();
 			return retval;
 		}
-		
+
 		public static void FPTime_MillisecondsToString (FPLong inTime, StringBuilder outClusterTime, ref FPInt ioClusterTimeLen, FPInt inOptions)
 		{
 			SDK.FPTime_MillisecondsToString8(inTime, outClusterTime, ref ioClusterTimeLen, inOptions);
 			SDK.CheckAndThrowError();
 		}
 
-	}    
+	}
 }

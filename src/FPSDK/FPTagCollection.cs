@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,24 +37,22 @@ using System.Collections;
 
 namespace EMC.Centera.SDK
 {
-    public class FPTagCollection:ArrayList
+  public sealed class FPTagCollection : ArrayList
+  {
+
+    /// <summary>
+    ///A collection of Tags on a Clip..
+    ///@author Graham Stuart
+    ///@version
+    /// </summary>
+    internal FPTagCollection( FPClip c )
     {
+      for( var i = 0; i < c.NumTags; i++ )
+      {
+        var t = c.NextTag;
+        _ = this.Add( t );
+      }
 
-        /// <summary> 
-        ///A collection of Tags on a Clip..
-        ///@author Graham Stuart
-        ///@version
-         /// </summary>
-        internal FPTagCollection(FPClip c) 
-        { 
-            FPTag t;
-
-            for (int i = 0; i < c.NumTags; i++)
-            {
-                t = c.NextTag;
-                Add(t);
-            }
-			
-        }
     }
+  }
 }

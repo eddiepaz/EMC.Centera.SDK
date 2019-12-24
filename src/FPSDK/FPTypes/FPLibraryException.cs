@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,30 +38,26 @@ using System.Text;
 
 namespace EMC.Centera.SDK.FPTypes
 {
-    [Serializable]
-    public class FPLibraryException : Exception
+  /// <inheritdoc />
+  [Serializable]
+  public class FPLibraryException : Exception
+  {
+    public ErrorInfo ErrorInfo { get; }
+
+    public FPLibraryException( FPErrorInfo errorInfo ) => this.ErrorInfo = new ErrorInfo( errorInfo );
+
+    public FPLibraryException( string s, int error ) => this.ErrorInfo = new ErrorInfo( s, error );
+
+    /// <inheritdoc />
+    public override string ToString()
     {
-        public ErrorInfo ErrorInfo { get; }
-
-        public FPLibraryException(FPErrorInfo errorInfo) 
-        {
-            ErrorInfo = new ErrorInfo(errorInfo);
-        }
-
-        public FPLibraryException(string s, int error)
-        {
-            ErrorInfo = new ErrorInfo(s, error);
-        }
-
-        public override string ToString()	
-        {
-            StringBuilder retval = new StringBuilder();
-            retval.Append("error: " + ErrorInfo.Error + 
-                          ", error text: " + ErrorInfo.ErrorString + 
-                          ", syserror: " + ErrorInfo.SystemError + 
-                          ", message: " + ErrorInfo.Message + 
-                          ", trace: " + ErrorInfo.Trace);
-            return retval.ToString();
-        }
+      var retval = new StringBuilder();
+      retval.Append( "error: " + this.ErrorInfo.Error +
+                    ", error text: " + this.ErrorInfo.ErrorString +
+                    ", syserror: " + this.ErrorInfo.SystemError +
+                    ", message: " + this.ErrorInfo.Message +
+                    ", trace: " + this.ErrorInfo.Trace );
+      return retval.ToString();
     }
+  }
 }

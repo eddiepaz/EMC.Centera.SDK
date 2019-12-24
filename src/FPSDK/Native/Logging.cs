@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -47,63 +47,63 @@ namespace EMC.Centera.SDK.Native
 
         public static FPBool GetAppendMode(FPLogStateRef inRef)
         {
-            FPBool retval = SDK.FPLogState_GetAppendMode(inRef);
+            var retval = SDK.FPLogState_GetAppendMode(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPBool GetDisableCallback(FPLogStateRef inRef)
         {
-            FPBool retval = SDK.FPLogState_GetDisableCallback(inRef);
+            var retval = SDK.FPLogState_GetDisableCallback(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPInt GetLogFilter(FPLogStateRef inRef)
         {
-            FPInt retval = SDK.FPLogState_GetLogFilter(inRef);
+            var retval = SDK.FPLogState_GetLogFilter(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPLogFormat GetLogFormat(FPLogStateRef inRef)
         {
-            FPLogFormat retval = SDK.FPLogState_GetLogFormat(inRef);
+            var retval = SDK.FPLogState_GetLogFormat(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPLogLevel GetLogLevel(FPLogStateRef inRef)
         {
-            FPLogLevel retval = SDK.FPLogState_GetLogLevel(inRef);
+            var retval = SDK.FPLogState_GetLogLevel(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static string GetLogPath(FPLogStateRef inRef)
         {
-            string retval = SDK.FPLogState_GetLogPath(inRef);
+            var retval = SDK.FPLogState_GetLogPath(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPLong GetMaxLogSize(FPLogStateRef inRef)
         {
-            FPLong retval = SDK.FPLogState_GetMaxLogSize(inRef);
+            var retval = SDK.FPLogState_GetMaxLogSize(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPInt GetMaxOverflows(FPLogStateRef inRef)
         {
-            FPInt retval = SDK.FPLogState_GetMaxOverflows(inRef);
+            var retval = SDK.FPLogState_GetMaxOverflows(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
 
         public static FPInt GetPollInterval(FPLogStateRef inRef)
         {
-            FPInt retval = SDK.FPLogState_GetPollInterval(inRef);
+            var retval = SDK.FPLogState_GetPollInterval(inRef);
             SDK.CheckAndThrowError();
             return retval;
         }
@@ -176,7 +176,7 @@ namespace EMC.Centera.SDK.Native
 
         public static FPLogStateRef CreateLogState()
         {
-            FPLogStateRef retval = SDK.FPLogging_CreateLogState();
+            var retval = SDK.FPLogging_CreateLogState();
             SDK.CheckAndThrowError();
             return retval;
         }
@@ -189,7 +189,7 @@ namespace EMC.Centera.SDK.Native
 
         public static FPLogStateRef OpenLogState(string inName)
         {
-            FPLogStateRef retval = SDK.FPLogging_OpenLogState8(inName);
+            var retval = SDK.FPLogging_OpenLogState8(inName);
             SDK.CheckAndThrowError();
             return retval;
         }

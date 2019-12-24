@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,29 +38,29 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class Query 
+    public class Query
     {
 
-        public static FPQueryRef Open(FPPoolRef inPool, FPLong inStartTime, FPLong inStopTime,  string inReserved) 
+        public static FPQueryRef Open(FPPoolRef inPool, FPLong inStartTime, FPLong inStopTime,  string inReserved)
         {
-            FPQueryRef retval = SDK.FPQuery_Open8(inPool, inStartTime, inStopTime, inReserved);
+            var retval = SDK.FPQuery_Open8(inPool, inStartTime, inStopTime, inReserved);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static FPInt FetchResult(FPQueryRef inQuery,  StringBuilder outResultClip, ref FPLong outTimestamp, FPInt inTimeout) 
+        public static FPInt FetchResult(FPQueryRef inQuery,  StringBuilder outResultClip, ref FPLong outTimestamp, FPInt inTimeout)
         {
-            FPInt retval = SDK.FPQuery_FetchResult(inQuery, outResultClip, ref outTimestamp, inTimeout);
+            var retval = SDK.FPQuery_FetchResult(inQuery, outResultClip, ref outTimestamp, inTimeout);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static void Close(FPQueryRef inQuery) 
+        public static void Close(FPQueryRef inQuery)
         {
             SDK.FPQuery_Close(inQuery);
             SDK.CheckAndThrowError();
         }
-        public static FPPoolRef GetPoolRef(FPQueryRef inQuery) 
+        public static FPPoolRef GetPoolRef(FPQueryRef inQuery)
         {
-            FPPoolRef retval = SDK.FPQuery_GetPoolRef(inQuery);
+            var retval = SDK.FPQuery_GetPoolRef(inQuery);
             SDK.CheckAndThrowError();
             return retval;
         }

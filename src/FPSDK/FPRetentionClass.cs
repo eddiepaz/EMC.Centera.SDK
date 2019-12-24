@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,132 +38,126 @@ using System.Text;
 using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK
-{	
+{
 
-	/// <summary> 
-	///A RetentionClass object.
-	///@author Graham Stuart
-	///@version
-	 /// </summary>
-	public class FPRetentionClass : FPObject
-	{
-		FPRetentionClassRef theClass;
+  /// <summary>
+  ///A RetentionClass object.
+  ///@author Graham Stuart
+  ///@version
+  /// </summary>
+  public class FPRetentionClass : FPObject
+  {
+    FPRetentionClassRef theClass;
 
-		/// <summary>
-		///Create a RetentionClass using an existing FPRetentionClassRef.
-		///
-		///@param	c	The FPRetentionClassRef.
-		 /// </summary>
-		internal FPRetentionClass(FPRetentionClassRef c)
-		{
-			theClass = c;
-			AddObject(theClass, this);
-		}
+    /// <summary>
+    ///Create a RetentionClass using an existing FPRetentionClassRef.
+    ///
+    ///@param	c	The FPRetentionClassRef.
+    /// </summary>
+    internal FPRetentionClass( FPRetentionClassRef c )
+    {
+      this.theClass = c;
+      this.AddObject( this.theClass, this );
+    }
 
 
-		/// <summary>
-		///The name of the RetentionClass.
-		///See API Guide: FPRetentionClass_GetName
-		///
-		 /// </summary>
-		public string Name
-		{
-			get
-			{
-				try
-				{
-                    byte[] outString;
-					FPInt bufSize = 0;
-					FPInt len = 0;
+    /// <summary>
+    ///The name of the RetentionClass.
+    ///See API Guide: FPRetentionClass_GetName
+    ///
+    /// </summary>
+    public string Name
+    {
+      get
+      {
+        try
+        {
+          byte[] outString;
+          FPInt bufSize = 0;
+          FPInt len = 0;
 
-					do
-					{
-						bufSize += FPMisc.STRING_BUFFER_SIZE;
-						len = bufSize;
-                        outString = new byte[(int)bufSize];
+          do
+          {
+            bufSize += FPMisc.STRING_BUFFER_SIZE;
+            len = bufSize;
+            outString = new byte[(int) bufSize];
 
-						Native.RetentionClass.GetName(this, ref outString, ref len);
-					} while (len > bufSize);
+            Native.RetentionClass.GetName( this, ref outString, ref len );
+          } while( len > bufSize );
 
-                    return Encoding.UTF8.GetString(outString, 0, (int)len - 1);
-				}
-				catch
-				{
-					throw;
-				}
-			}
-		}
+          return Encoding.UTF8.GetString( outString, 0, (int) len - 1 );
+        }
+        catch
+        {
+          throw;
+        }
+      }
+    }
 
-		/// <summary>
-		///The Period (as a TimeSpan) associated with this RetentionClass. See API Guide: FPRetentionClass_GetPeriod
-		///
-		 /// </summary>
-		public TimeSpan Period => new TimeSpan(0, 0, (int) Native.RetentionClass.GetPeriod(this));
+    /// <summary>
+    ///The Period (as a TimeSpan) associated with this RetentionClass. See API Guide: FPRetentionClass_GetPeriod
+    ///
+    /// </summary>
+    public TimeSpan Period => new TimeSpan( 0, 0, (int) Native.RetentionClass.GetPeriod( this ) );
 
-	    /// <summary>
-		///Explicitly close the RetentionClass. See API Guide: FPRetentionClass_Close
-		///
-		 /// </summary>
-		public override void Close() 
-		{
-			if (theClass != 0)
-			{
-				RemoveObject(theClass);
-				Native.RetentionClass.Close(theClass);
-				theClass = 0;
-			}
-		}
-		
+    /// <summary>
+    ///Explicitly close the RetentionClass. See API Guide: FPRetentionClass_Close
+    ///
+    /// </summary>
+    public override void Close()
+    {
+      if( this.theClass != 0 )
+      {
+        this.RemoveObject( this.theClass );
+        Native.RetentionClass.Close( this.theClass );
+        this.theClass = 0;
+      }
+    }
 
-		/// <summary>
-		///Implicit conversion between an FPRetentionClass and an FPRetentionClassRef.
-		///
-		///@param c	An FPRetentionClass object.
-		///@return	The FPRetentionClassRef associated with this object.
-		 /// </summary>
-		public static implicit operator FPRetentionClassRef(FPRetentionClass c) 
-		{
-			return c.theClass;
-		}
 
-		/// <summary>
-		///Implicit conversion between an FPRetentionClassRef and an FPRetentionClass. 
-		///
-		///@param	classRef	An FPRetentionClassRef.
-		///@return	The FPRetentionClass object associated with it.
-		 /// </summary>
-		public static implicit operator FPRetentionClass(FPRetentionClassRef classRef) 
-		{
-			// Find the relevant Tag object in the hastable for this FPTagRef
-			FPRetentionClass classObject = null;
+    /// <summary>
+    ///Implicit conversion between an FPRetentionClass and an FPRetentionClassRef.
+    ///
+    ///@param c	An FPRetentionClass object.
+    ///@return	The FPRetentionClassRef associated with this object.
+    /// </summary>
+    public static implicit operator FPRetentionClassRef( FPRetentionClass c ) => c.theClass;
 
-			if (SDKObjects.Contains(classRef))
-			{
-				classObject = (FPRetentionClass) SDKObjects[classRef];
-			}
-            else
-            {
-                throw new FPLibraryException("FPRetentionClassRef is not asscociated with an FPRetentionClass object", FPMisc.WRONG_REFERENCE_ERR);
-            }
+    /// <summary>
+    ///Implicit conversion between an FPRetentionClassRef and an FPRetentionClass.
+    ///
+    ///@param	classRef	An FPRetentionClassRef.
+    ///@return	The FPRetentionClass object associated with it.
+    /// </summary>
+    public static implicit operator FPRetentionClass( FPRetentionClassRef classRef )
+    {
+      // Find the relevant Tag object in the hastable for this FPTagRef
+      FPRetentionClass classObject = null;
 
-			return classObject;
-		}
+      if( FPObject.SDKObjects.Contains( classRef ) )
+      {
+        classObject = (FPRetentionClass) FPObject.SDKObjects[classRef];
+      }
+      else
+      {
+        throw new FPLibraryException( "FPRetentionClassRef is not associated with an FPRetentionClass object", FPMisc.WRONG_REFERENCE_ERR );
+      }
 
-		/// <summary>
-		///Get a string representation of this RetentionClass - the RetentionClass name and Period.
-		///
-		///@return The string representation of this object.
-		 /// </summary>
-		public override string ToString()
-		{
-			return Name + "("
-                + Period.Days + "d "
-                + Period.Hours + "h "
-                + Period.Minutes + "m "
-                + Period.Seconds + "s "
-                + Period.Milliseconds + "ms)";
+      return classObject;
+    }
 
-		}  // end of class RetentionClass
+    /// <summary>
+    ///Get a string representation of this RetentionClass - the RetentionClass name and Period.
+    ///
+    ///@return The string representation of this object.
+    /// </summary>
+    public override string ToString() =>
+      this.Name + "("
+                + this.Period.Days + "d "
+                + this.Period.Hours + "h "
+                + this.Period.Minutes + "m "
+                + this.Period.Seconds + "s "
+                + this.Period.Milliseconds + "ms)";  // end of class RetentionClass
 
-	}
+  }
 }

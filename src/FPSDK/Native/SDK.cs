@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -40,7 +40,7 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    internal sealed class SDK 
+    internal sealed class SDK
     {
         // These calls need special marshalling as they input AND output UTF-8 strings that may include "foreign" characters
         [DllImport("FPLibrary.dll")]
@@ -607,17 +607,17 @@ namespace EMC.Centera.SDK.Native
         public static void CheckAndThrowError()
         {
             /* Get the error code of the last SDK API function call */
-            FPInt errorCode = FPPool_GetLastError();
+            var errorCode = SDK.FPPool_GetLastError();
             if (0 != errorCode)
             {
-                FPErrorInfo errInfo = new FPErrorInfo();
+                var errInfo = new FPErrorInfo();
 
                 unsafe
                 {
-                    IntPtr ptr = (IntPtr) Marshal.AllocHGlobal((int)1024).ToPointer();
+                    var ptr = (IntPtr) Marshal.AllocHGlobal((int)1024).ToPointer();
 
                     /* Get the error message of the last SDK API function call */
-                    FPPool_GetLastErrorInfo(ptr);
+                    SDK.FPPool_GetLastErrorInfo(ptr);
                     errInfo = (FPErrorInfo)Marshal.PtrToStructure(ptr, typeof(FPErrorInfo));
                     Marshal.FreeHGlobal(ptr);
                 }

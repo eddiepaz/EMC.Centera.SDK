@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,25 +37,25 @@ using System.Collections;
 
 namespace EMC.Centera.SDK
 {
-    /// <summary>
-///A collection of Attributes existing on a Tag or DescriptionAttributes on a Clip..
- /// </summary>
-    public sealed class FPAttributeCollection:ArrayList
+  /// <summary>
+  ///A collection of Attributes existing on a Tag or DescriptionAttributes on a Clip..
+  /// </summary>
+  public sealed class FPAttributeCollection : ArrayList
+  {
+    internal FPAttributeCollection( FPTag t )
     {
-        internal FPAttributeCollection(FPTag t) 
-        { 
-            for (int i = 0; i < t.NumAttributes; i++)
-            {
-                Add(t.GetAttributeByIndex(i));
-            }
-        } 
-                       
-        internal FPAttributeCollection(FPClip c) 
-        { 
-            for (int i = 0; i < c.NumAttributes; i++)
-            {
-                Add(c.GetAttributeByIndex(i));
-            }
-        } 
+      for( var i = 0; i < t.NumAttributes; i++ )
+      {
+        this.Add( t.GetAttributeByIndex( i ) );
+      }
     }
+
+    internal FPAttributeCollection( FPClip c )
+    {
+      for( var i = 0; i < c.NumAttributes; i++ )
+      {
+        this.Add( c.GetAttributeByIndex( i ) );
+      }
+    }
+  }
 }

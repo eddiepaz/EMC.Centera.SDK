@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -39,49 +39,39 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK
 {
-	/// <summary> 
-	///FPStreamInfo contains the control information and data buffer that is used to transfer data
-	///between the application and the SDK.
-	///@author Graham Stuart
-	///@version
-	 /// </summary>
+  /// <summary>
+  ///FPStreamInfo contains the control information and data buffer that is used to transfer data
+  ///between the application and the SDK.
+  ///@author Graham Stuart
+  ///@version
+  /// </summary>
 
-    internal sealed class SDK 
-	{
-		[DllImport("FPLibrary.dll")]
-		public static extern		   FPStreamRef FPStream_CreateGenericStream (FPCallback prepareProc,
-			FPCallback completeProc,
-			FPCallback setMarkerProc,
-			FPCallback resetMarkerProc,
-			FPCallback closeProc,
-			IntPtr userData);
-		
-		[DllImport("FPLibrary.dll")]
-		public static extern		   void         FPStream_Close (FPStreamRef pStream) ;
-		
-		[DllImport("FPLibrary.dll")]
-		public static extern unsafe	    FPStreamInfo* FPStream_GetInfo (FPStreamRef pStream);
-		
-		[DllImport("FPLibrary.dll")]
-		public static extern		   IntPtr		 FPStream_PrepareBuffer (FPStreamRef pStream) ;
-		
-		[DllImport("FPLibrary.dll")]
-		public static extern		   	IntPtr	 FPStream_Complete (FPStreamRef pStream) ;
-		
-		[DllImport("FPLibrary.dll")]
-		public static extern		   void          FPStream_SetMark (FPStreamRef pStream) ;
-		
-		[DllImport("FPLibrary.dll")]
-		public static extern		   void          FPStream_ResetMark (FPStreamRef pStream) ;
+  internal sealed class SDK
+  {
+    [DllImport( "FPLibrary.dll" )]
+    public static extern FPStreamRef FPStream_CreateGenericStream( FPCallback prepareProc,
+      FPCallback completeProc,
+      FPCallback setMarkerProc,
+      FPCallback resetMarkerProc,
+      FPCallback closeProc,
+      IntPtr userData );
 
-	}
+    [DllImport( "FPLibrary.dll" )]
+    public static extern void FPStream_Close( FPStreamRef pStream );
 
+    [DllImport( "FPLibrary.dll" )]
+    public static extern unsafe FPStreamInfo* FPStream_GetInfo( FPStreamRef pStream );
 
-    
+    [DllImport( "FPLibrary.dll" )]
+    public static extern IntPtr FPStream_PrepareBuffer( FPStreamRef pStream );
 
-   
+    [DllImport( "FPLibrary.dll" )]
+    public static extern IntPtr FPStream_Complete( FPStreamRef pStream );
 
-   
+    [DllImport( "FPLibrary.dll" )]
+    public static extern void FPStream_SetMark( FPStreamRef pStream );
+
+    [DllImport( "FPLibrary.dll" )]
+    public static extern void FPStream_ResetMark( FPStreamRef pStream );
+  }
 }
-
-

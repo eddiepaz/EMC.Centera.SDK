@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>EMC.Centera.SDK.NET</id>
+    <version>1.0.0</version>
+    <title></title>
+    <authors>EMC / Eddie Paz</authors>
+    <owners>EMC / Eddie Paz</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/eddiepaz/EMC.Centera.SDK</projectUrl>
+    <description>Object Oriented .NET wrapper for the Centera SDK v3.4.757</description>
+    <summary></summary>
+  </metadata>
+  <files>
+    <file src="build\net40\EMC.Centera.SDK.dll" target="build\net40\EMC.Centera.SDK.dll" />
+    <file src="build\net40\EMC.Centera.SDK.xml" target="build\net40\EMC.Centera.SDK.xml" />
+    <file src="build\net462\EMC.Centera.SDK.dll" target="build\net462\EMC.Centera.SDK.dll" />
+    <file src="build\net462\EMC.Centera.SDK.xml" target="build\net462\EMC.Centera.SDK.xml" />
+    <file src="build\netstandard2.0\EMC.Centera.SDK.deps.json" target="build\netstandard2.0\EMC.Centera.SDK.deps.json" />
+    <file src="build\netstandard2.0\EMC.Centera.SDK.dll" target="build\netstandard2.0\EMC.Centera.SDK.dll" />
+    <file src="build\netstandard2.0\EMC.Centera.SDK.xml" target="build\netstandard2.0\EMC.Centera.SDK.xml" />
+    <file src="build\netstandard2.1\EMC.Centera.SDK.deps.json" target="build\netstandard2.1\EMC.Centera.SDK.deps.json" />
+    <file src="build\netstandard2.1\EMC.Centera.SDK.dll" target="build\netstandard2.1\EMC.Centera.SDK.dll" />
+    <file src="build\netstandard2.1\EMC.Centera.SDK.xml" target="build\netstandard2.1\EMC.Centera.SDK.xml" />
+    <file src="lib\_._" target="lib\_._" />
+    <file src="FPCore.dll" target="FPCore.dll" />
+    <file src="FPLibrary.dll" target="FPLibrary.dll" />
+    <file src="fpos32.dll" target="fpos32.dll" />
+    <file src="fpparser.dll" target="fpparser.dll" />
+    <file src="FPStreams.dll" target="FPStreams.dll" />
+    <file src="FPUtils.dll" target="FPUtils.dll" />
+    <file src="FPXML.dll" target="FPXML.dll" />
+    <file src="pai_module.dll" target="pai_module.dll" />
+  </files>
+</package>

@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -53,14 +53,11 @@ namespace EMC.Centera.SDK.Native
             Marshal.FreeHGlobal(pNativeData);
         }
 
-        public int GetNativeDataSize()
-        {
-            return Marshal.SizeOf(typeof(byte));
-        }
+        public int GetNativeDataSize() => Marshal.SizeOf(typeof(byte));
 
         public int GetNativeDataSize(IntPtr ptr)
         {
-            int size = 0;
+            var size = 0;
             for (size = 0; Marshal.ReadByte(ptr, size) > 0; size++);
             return size;
         }
@@ -77,9 +74,9 @@ namespace EMC.Centera.SDK.Native
                 throw new ArgumentException("CustomMarshal class MarshalPtrToUtf8 only works with System.String variables");
             }
 
-            byte[] array = Encoding.UTF8.GetBytes((string)ManagedObj);
-            int size = Marshal.SizeOf(array[0]) * array.Length + Marshal.SizeOf(array[0]);
-            IntPtr ptr = Marshal.AllocHGlobal(size);
+            var array = Encoding.UTF8.GetBytes((string)ManagedObj);
+            var size = Marshal.SizeOf(array[0]) * array.Length + Marshal.SizeOf(array[0]);
+            var ptr = Marshal.AllocHGlobal(size);
             Marshal.Copy(array, 0, ptr, array.Length);
             Marshal.WriteByte(ptr, size - 1, 0);
             return ptr;
@@ -89,15 +86,12 @@ namespace EMC.Centera.SDK.Native
         {
             if (pNativeData == IntPtr.Zero)
                 return null;
-            int size = GetNativeDataSize(pNativeData);
-            byte[] array = new byte[size];
+            var size = this.GetNativeDataSize(pNativeData);
+            var array = new byte[size];
             Marshal.Copy(pNativeData, array, 0, size);
             return Encoding.UTF8.GetString(array);
         }
 
-        public static ICustomMarshaler GetInstance(string cookie)
-        {
-            return marshaler;
-        }
+        public static ICustomMarshaler GetInstance(string cookie) => MarshalPtrToUtf8.marshaler;
     }
 }

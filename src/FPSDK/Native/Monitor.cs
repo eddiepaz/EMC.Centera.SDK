@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,36 +38,36 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class Monitor 
+    public class Monitor
     {
 
-        public static FPMonitorRef Open( string inClusterAddress) 
+        public static FPMonitorRef Open( string inClusterAddress)
         {
-            FPMonitorRef retval = SDK.FPMonitor_Open8(inClusterAddress);
+            var retval = SDK.FPMonitor_Open8(inClusterAddress);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static void Close(FPMonitorRef inMonitor) 
+        public static void Close(FPMonitorRef inMonitor)
         {
             SDK.FPMonitor_Close(inMonitor);
             SDK.CheckAndThrowError();
         }
-        public static void GetDiscovery(FPMonitorRef inMonitor,  StringBuilder outData, ref FPInt ioDataLen) 
+        public static void GetDiscovery(FPMonitorRef inMonitor,  StringBuilder outData, ref FPInt ioDataLen)
         {
             SDK.FPMonitor_GetDiscovery(inMonitor, outData, ref ioDataLen);
             SDK.CheckAndThrowError();
         }
-        public static void GetDiscoveryStream(FPMonitorRef inMonitor, FPStreamRef inStream) 
+        public static void GetDiscoveryStream(FPMonitorRef inMonitor, FPStreamRef inStream)
         {
             SDK.FPMonitor_GetDiscoveryStream(inMonitor, inStream);
             SDK.CheckAndThrowError();
         }
-        public static void GetAllStatistics(FPMonitorRef inMonitor,  StringBuilder outData, ref FPInt ioDataLen) 
+        public static void GetAllStatistics(FPMonitorRef inMonitor,  StringBuilder outData, ref FPInt ioDataLen)
         {
             SDK.FPMonitor_GetAllStatistics(inMonitor, outData, ref ioDataLen);
             SDK.CheckAndThrowError();
         }
-        public static void GetAllStatisticsStream(FPMonitorRef inMonitor, FPStreamRef inStream) 
+        public static void GetAllStatisticsStream(FPMonitorRef inMonitor, FPStreamRef inStream)
         {
             SDK.FPMonitor_GetAllStatisticsStream(inMonitor, inStream);
             SDK.CheckAndThrowError();

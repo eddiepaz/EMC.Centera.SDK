@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -35,37 +35,30 @@ along with .NET wrapper; see the file COPYING. If not, write to:
 
 namespace EMC.Centera.SDK.FPTypes
 {
-    public class ErrorInfo
+  public class ErrorInfo
+  {
+    private readonly FPErrorInfo errorInfo;
+
+    internal ErrorInfo( FPErrorInfo errorInfo ) => this.errorInfo = errorInfo;
+
+    internal ErrorInfo( string s, int error )
     {
-        private readonly FPErrorInfo _errorInfo;
-
-        internal ErrorInfo(FPErrorInfo errorInfo)
-        {
-            _errorInfo = errorInfo;
-        }
-
-        internal ErrorInfo(string s, int error)
-        {
-            _errorInfo.errorString = s;
-            _errorInfo.error = (FPInt) error;
-            _errorInfo.trace = "";
-            _errorInfo.message = "";
-            _errorInfo.errorClass = (FPShort) 3;
-        }
-
-        public int Error => (int) _errorInfo.error;
-        public int SystemError => (int) _errorInfo.systemError;
-
-        public string Trace => _errorInfo.trace;
-        public string Message => _errorInfo.message;
-        public string ErrorString => _errorInfo.errorString;
-
-        public ushort ErrorClass => (ushort) _errorInfo.errorClass;
-
-        public override string ToString()
-        {
-            return ErrorString;
-        }
-
+      this.errorInfo.errorString = s;
+      this.errorInfo.error = (FPInt) error;
+      this.errorInfo.trace = "";
+      this.errorInfo.message = "";
+      this.errorInfo.errorClass = (FPShort) 3;
     }
+
+    public int Error => (int) this.errorInfo.error;
+    public int SystemError => (int) this.errorInfo.systemError;
+
+    public string Trace => this.errorInfo.trace;
+    public string Message => this.errorInfo.message;
+    public string ErrorString => this.errorInfo.errorString;
+
+    public ushort ErrorClass => (ushort) this.errorInfo.errorClass;
+
+    public override string ToString() => this.ErrorString;
+  }
 }

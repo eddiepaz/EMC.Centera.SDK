@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -38,34 +38,38 @@ using System.IO;
 
 namespace EMC.Centera.SDK
 {
-    /// <summary> The FPPartialOutputStream writes data to a section of an
-    /// underlying stream using offset and size to determine the "section" boundaries.
-    /// An additonal constructor places constraints on the maximum size of the resulting stream.
-    /// </summary>
-    public class FPPartialOutputStream : FPPartialStream
+  /// <summary> The FPPartialOutputStream writes data to a section of an
+  /// underlying stream using offset and size to determine the "section" boundaries.
+  /// An additional constructor places constraints on the maximum size of the resulting stream.
+  /// </summary>
+  public class FPPartialOutputStream : FPPartialStream
+  {
+    public FPPartialOutputStream( Stream s, long o, long c ) : base( s, o, c ) { }
+
+    public FPPartialOutputStream( Stream s, long o, long c, long max ) : base( s, o, (o + c) > max ? max - o : 0 )
     {
-        public FPPartialOutputStream(Stream s, long o, long c) : base(s, o, c) { }
-
-        public FPPartialOutputStream(Stream s, long o, long c, long max) : base(s, o, (o + c) > max ? max - o : 0)
-        {
-            if (o > max)
-                throw new Exception("Offset > max file size for PartialOutputStream");
-        }
-
-        public override bool CanWrite => true;
-
-        public override void Write(byte[] buffer, int offset, int count)
-        {
-            lock (theStream)
-            {
-                theStream.Seek(Position, SeekOrigin.Begin);
-
-                if ((Position + count) > end)
-                    count = (int)(end - Position);
-
-                theStream.Write(buffer, offset, count);
-                Position += count;
-            }
-        }
+      if( o > max )
+      {
+        throw new Exception( "Offset > max file size for PartialOutputStream" );
+      }
     }
+
+    public override bool CanWrite => true;
+
+    public override void Write( byte[] buffer, int offset, int count )
+    {
+      lock( this.theStream )
+      {
+        this.theStream.Seek( this.Position, SeekOrigin.Begin );
+
+        if( (this.Position + count) > this.end )
+        {
+          count = (int) (this.end - this.Position);
+        }
+
+        this.theStream.Write( buffer, offset, count );
+        this.Position += count;
+      }
+    }
+  }
 }

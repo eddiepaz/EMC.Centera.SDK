@@ -25,7 +25,7 @@ You should have received a copy of the GNU General Public License version 2
 along with .NET wrapper; see the file COPYING. If not, write to:
 
  EMC Corporation 
- Centera Open Source Intiative (COSI) 
+ Centera Open Source Initiative (COSI) 
  80 South Street
  1/W-1
  Hopkinton, MA 01748 
@@ -37,16 +37,16 @@ using EMC.Centera.SDK.FPTypes;
 
 namespace EMC.Centera.SDK.Native
 {
-    public class EventCallback 
+    public class EventCallback
     {
 
-        public static FPEventCallbackRef RegisterForAllEvents(FPMonitorRef inMonitor, FPStreamRef inStream) 
+        public static FPEventCallbackRef RegisterForAllEvents(FPMonitorRef inMonitor, FPStreamRef inStream)
         {
-            FPEventCallbackRef retval = SDK.FPEventCallback_RegisterForAllEvents(inMonitor, inStream);
+            var retval = SDK.FPEventCallback_RegisterForAllEvents(inMonitor, inStream);
             SDK.CheckAndThrowError();
             return retval;
         }
-        public static void Close(FPEventCallbackRef inRegisterRef) 
+        public static void Close(FPEventCallbackRef inRegisterRef)
         {
             SDK.FPEventCallback_Close(inRegisterRef);
             SDK.CheckAndThrowError();
