@@ -1,35 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>EMC.Centera.SDK.NET</id>
-    <version>1.0.0</version>
-    <title></title>
+    <version>1.0.12</version>
+    <title>EMC Centera SDK .NET</title>
     <authors>EMC / Eddie Paz</authors>
     <owners>EMC / Eddie Paz</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/eddiepaz/EMC.Centera.SDK</projectUrl>
     <description>Object Oriented .NET wrapper for the Centera SDK v3.4.757</description>
-    <summary></summary>
+    <summary>EMC Centera SDK .NET is a wrapper to the Centera SDK that targets up to .NET Standard 2.1</summary>
+    <dependencies>
+	    <group targetFramework=".NETFramework40" />
+	    <group targetFramework=".NETFramework462" />
+	    <group targetFramework=".NETStandard20" />
+	    <group targetFramework=".NETStandard21" />
+	  </dependencies>
+    <references>
+      <group>
+        <reference file="EMC.Centera.SDK.dll" />
+      </group>
+    </references>
   </metadata>
   <files>
-    <file src="build\net40\EMC.Centera.SDK.dll" target="build\net40\EMC.Centera.SDK.dll" />
-    <file src="build\net40\EMC.Centera.SDK.xml" target="build\net40\EMC.Centera.SDK.xml" />
-    <file src="build\net462\EMC.Centera.SDK.dll" target="build\net462\EMC.Centera.SDK.dll" />
-    <file src="build\net462\EMC.Centera.SDK.xml" target="build\net462\EMC.Centera.SDK.xml" />
-    <file src="build\netstandard2.0\EMC.Centera.SDK.deps.json" target="build\netstandard2.0\EMC.Centera.SDK.deps.json" />
-    <file src="build\netstandard2.0\EMC.Centera.SDK.dll" target="build\netstandard2.0\EMC.Centera.SDK.dll" />
-    <file src="build\netstandard2.0\EMC.Centera.SDK.xml" target="build\netstandard2.0\EMC.Centera.SDK.xml" />
-    <file src="build\netstandard2.1\EMC.Centera.SDK.deps.json" target="build\netstandard2.1\EMC.Centera.SDK.deps.json" />
-    <file src="build\netstandard2.1\EMC.Centera.SDK.dll" target="build\netstandard2.1\EMC.Centera.SDK.dll" />
-    <file src="build\netstandard2.1\EMC.Centera.SDK.xml" target="build\netstandard2.1\EMC.Centera.SDK.xml" />
-    <file src="lib\_._" target="lib\_._" />
-    <file src="FPCore.dll" target="FPCore.dll" />
-    <file src="FPLibrary.dll" target="FPLibrary.dll" />
-    <file src="fpos32.dll" target="fpos32.dll" />
-    <file src="fpparser.dll" target="fpparser.dll" />
-    <file src="FPStreams.dll" target="FPStreams.dll" />
-    <file src="FPUtils.dll" target="FPUtils.dll" />
-    <file src="FPXML.dll" target="FPXML.dll" />
-    <file src="pai_module.dll" target="pai_module.dll" />
+    <file src="Centera-3.4.757\FPCore.dll" target="build\Centera\FPCore.dll" />
+    <file src="Centera-3.4.757\FPLibrary.dll" target="build\Centera\FPLibrary.dll" />
+    <file src="Centera-3.4.757\fpos32.dll" target="build\Centera\fpos32.dll" />
+    <file src="Centera-3.4.757\fpparser.dll" target="build\Centera\fpparser.dll" />
+    <file src="Centera-3.4.757\FPStreams.dll" target="build\Centera\FPStreams.dll" />
+    <file src="Centera-3.4.757\FPUtils.dll" target="build\Centera\FPUtils.dll" />
+    <file src="Centera-3.4.757\FPXML.dll" target="build\Centera\FPXML.dll" />
+    <file src="Centera-3.4.757\pai_module.dll" target="build\Centera\pai_module.dll" />
+
+    <file src="EMC.Centera.SDK.NET.targets" target="build\EMC.Centera.SDK.NET.targets" />
+
+    <file src="Centera-3.4.757\FPCore.dll" target="lib\net40\FPCore.dll" />
+    <file src="Centera-3.4.757\FPLibrary.dll" target="lib\net40\FPLibrary.dll" />
+    <file src="Centera-3.4.757\fpos32.dll" target="lib\net40\fpos32.dll" />
+    <file src="Centera-3.4.757\fpparser.dll" target="lib\net40\fpparser.dll" />
+    <file src="Centera-3.4.757\FPStreams.dll" target="lib\net40\FPStreams.dll" />
+    <file src="Centera-3.4.757\FPUtils.dll" target="lib\net40\FPUtils.dll" />
+    <file src="Centera-3.4.757\FPXML.dll" target="lib\net40\FPXML.dll" />
+    <file src="Centera-3.4.757\pai_module.dll" target="lib\net40\pai_module.dll" />
+
+    <file src="Centera-3.4.757\FPCore.dll" target="lib\net462\FPCore.dll" />
+    <file src="Centera-3.4.757\FPLibrary.dll" target="lib\net462\FPLibrary.dll" />
+    <file src="Centera-3.4.757\fpos32.dll" target="lib\net462\fpos32.dll" />
+    <file src="Centera-3.4.757\fpparser.dll" target="lib\net462\fpparser.dll" />
+    <file src="Centera-3.4.757\FPStreams.dll" target="lib\net462\FPStreams.dll" />
+    <file src="Centera-3.4.757\FPUtils.dll" target="lib\net462\FPUtils.dll" />
+    <file src="Centera-3.4.757\FPXML.dll" target="lib\net462\FPXML.dll" />
+    <file src="Centera-3.4.757\pai_module.dll" target="lib\net462\pai_module.dll" />
+
+    <file src="Centera-3.4.757\FPCore.dll" target="lib\netstandard20\FPCore.dll" />
+    <file src="Centera-3.4.757\FPLibrary.dll" target="lib\netstandard20\FPLibrary.dll" />
+    <file src="Centera-3.4.757\fpos32.dll" target="lib\netstandard20\fpos32.dll" />
+    <file src="Centera-3.4.757\fpparser.dll" target="lib\netstandard20\fpparser.dll" />
+    <file src="Centera-3.4.757\FPStreams.dll" target="lib\netstandard20\FPStreams.dll" />
+    <file src="Centera-3.4.757\FPUtils.dll" target="lib\netstandard20\FPUtils.dll" />
+    <file src="Centera-3.4.757\FPXML.dll" target="lib\netstandard20\FPXML.dll" />
+    <file src="Centera-3.4.757\pai_module.dll" target="lib\netstandard20\pai_module.dll" />
+
+    <file src="Centera-3.4.757\FPCore.dll" target="lib\netstandard21\FPCore.dll" />
+    <file src="Centera-3.4.757\FPLibrary.dll" target="lib\netstandard21\FPLibrary.dll" />
+    <file src="Centera-3.4.757\fpos32.dll" target="lib\netstandard21\fpos32.dll" />
+    <file src="Centera-3.4.757\fpparser.dll" target="lib\netstandard21\fpparser.dll" />
+    <file src="Centera-3.4.757\FPStreams.dll" target="lib\netstandard21\FPStreams.dll" />
+    <file src="Centera-3.4.757\FPUtils.dll" target="lib\netstandard21\FPUtils.dll" />
+    <file src="Centera-3.4.757\FPXML.dll" target="lib\netstandard21\FPXML.dll" />
+    <file src="Centera-3.4.757\pai_module.dll" target="lib\netstandard21\pai_module.dll" />
+
+    <file src="FPSDK\bin\release\net40\EMC.Centera.SDK.dll" target="ref\net40\" />
+    <file src="FPSDK\bin\release\net40\EMC.Centera.SDK.dll" target="ref\net462\" />
+    <file src="FPSDK\bin\release\net40\EMC.Centera.SDK.dll" target="ref\netstandard20\" />
+    <file src="FPSDK\bin\release\net40\EMC.Centera.SDK.dll" target="ref\netstandard21\" />
+
+    <file src="FPSDK\bin\release\net40\EMC.Centera.SDK.dll" target="lib\net40\EMC.Centera.SDK.dll" />
+    <file src="FPSDK\bin\release\net40\EMC.Centera.SDK.xml" target="lib\net40\EMC.Centera.SDK.xml" />
+    <file src="FPSDK\bin\release\net462\EMC.Centera.SDK.dll" target="lib\net462\EMC.Centera.SDK.dll" />
+    <file src="FPSDK\bin\release\net462\EMC.Centera.SDK.xml" target="lib\net462\EMC.Centera.SDK.xml" />
+    <file src="FPSDK\bin\release\netstandard2.0\EMC.Centera.SDK.deps.json" target="lib\netstandard2.0\EMC.Centera.SDK.deps.json" />
+    <file src="FPSDK\bin\release\netstandard2.0\EMC.Centera.SDK.dll" target="lib\netstandard2.0\EMC.Centera.SDK.dll" />
+    <file src="FPSDK\bin\release\netstandard2.0\EMC.Centera.SDK.xml" target="lib\netstandard2.0\EMC.Centera.SDK.xml" />
+    <file src="FPSDK\bin\release\netstandard2.1\EMC.Centera.SDK.deps.json" target="lib\netstandard2.1\EMC.Centera.SDK.deps.json" />
+    <file src="FPSDK\bin\release\netstandard2.1\EMC.Centera.SDK.dll" target="lib\netstandard2.1\EMC.Centera.SDK.dll" />
+    <file src="FPSDK\bin\release\netstandard2.1\EMC.Centera.SDK.xml" target="lib\netstandard2.1\EMC.Centera.SDK.xml" />
   </files>
 </package>
